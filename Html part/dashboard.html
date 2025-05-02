@@ -1,66 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthyHabits Tracker - Dashboard</title>
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="../css part/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - HealthyHabits Tracker</title>
+  <link rel="stylesheet" href="../css part/dashboard.css">
 </head>
 <body>
+  <header class="dashboard-header">
+    <h1>HealthyHabits Tracker</h1>
+    <button id="logout-btn">Logout</button>
+    <button id="toggleDarkMode">🌓 Toggle Dark Mode</button>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">HealthyHabits Tracker</div>
-            <div class="nav-actions">
-                <a href="habitcreation.html" class="add-habit-btn">➕ Add New Habit</a>
-                <button id="logout-btn">Logout</button>
-            </div>
-        </nav>
-    </header>
+  </header>
 
-    <!-- Main Dashboard Content -->
-    <main class="dashboard-container">
+  <section class="summary">
+    <h2>Welcome, <span id="user-email">User</span></h2>
+    <div class="wellness-score">
+      <p>Your Wellness Score: <span id="wellness-score">--</span></p>
+    </div>
+  </section>
+  
 
-        <!-- Wellness Score -->
-        <section class="wellness-score-section">
-            <h2>Your Wellness Score</h2>
-            <div id="wellness-score" class="score">0</div>
-        </section>
+  <section class="habit-section">
+    <div class="habit-header">
+      <h2>Your Habits</h2>
+      <a href="habitcreation.html" class="add-habit-btn">+ Add Habit</a>
+    </div>
+    <div id="habit-list" class="habit-list">
+      <!-- Habit cards will be dynamically inserted here -->
+    </div>
+  </section>
+  <section id="analytics-link">
+    <p>Want to see your habit progress and trends?</p>
+    <a href="analytics.html" class="btn">Go to Habit Analytics</a>
+  </section>
 
-        <!-- Habits List -->
-        <section class="habits-section">
-            <h2>Your Habits</h2>
-            <div id="habit-list" class="habit-list">
-                <!-- Habit cards will be injected here by dashboard.js -->
-            </div>
-        </section>
 
-        <!-- Analytics Chart -->
-        <section class="analytics-section">
-            <h2>Weekly Trend</h2>
-            <canvas id="habit-chart"></canvas>
-        </section>
-        <a href="Html part/habitcard.html">
-            <button>Habit Card</button>
-        </a>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 
-    </main>
-
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-    <!-- Firebase config & initialization -->
-    <script src="../js/firebase-config.js"></script>
-
-    <!-- App Logic -->
-    <script src="../js/auth.js"></script>
-    <script src="../js/habits.js"></script>
-    <script src="../js/dashboard.js"></script>
-
+  <!-- Scripts -->
+  <script src="../js part/firebase-config.js"></script>
+  <script src="../js part/auth.js"></script>
+  <script src="../js part/dashboard.js"></script>
 </body>
 </html>
