@@ -102,7 +102,7 @@ HealthyHabits_Tracker/
 
 **Harsh Pratap Singh**  
 - Email: harshpratapsingh39900@gmail.com
-- GitHub:  
+- GitHub:  https://github.com/harsh108hps
 - Portfolio:
 
 ---
