@@ -6,7 +6,7 @@ The **Healthy Fitness Tracker** is a web-based application designed to help user
 
 ## 🚀 Live Demo
 
-👉 [Click here to view the live site](https://your-site-name.netlify.app)  
+👉 [Click here to view the live site](https://singular-begonia-ab6fcc.netlify.app/)  
 
 
 ---
@@ -61,19 +61,47 @@ The **Healthy Fitness Tracker** is a web-based application designed to help user
 
 ## 📁 Folder Structure
 
+HealthyHabits_Tracker/
+│
+├── 📁 assets/
+│   ├── 📁 images/               # App images (icons, illustrations)
+│   └── 📁 fonts/                # Custom fonts if used
+│
+├── 📁 css/
+│   └── style.css               # Main stylesheet
+│
+├── 📁 js/
+│   ├── auth.js                 # Firebase authentication logic (login/signup/logout)
+│   ├── habits.js               # Habit tracking logic (create, log, update)
+│   ├── dashboard.js            # Dashboard logic (charts, wellness score, summaries)
+│   ├── reminders.js            # Notification/reminder logic
+│   └── firebase-config.js      # Firebase config & initialization
+│
+├── 📁 pages/
+│   ├── login.html              # Login page
+│   ├── signup.html             # Signup/register page
+│   ├── dashboard.html          # Main app page after login
+│   └── habit-creation.html     # Optional: Separate habit creation page
+│
+├── 📁 components/              # Optional - reusable HTML snippets or JS modules
+│   ├── navbar.html             # Navigation bar
+│   └── habitCard.html          # Template for habit cards
+│
+├── index.html                  # Landing page (intro/about or login redirect)
+├── manifest.json               # (Optional) For PWA setup
+├── README.md                   # Project overview and setup guide
+└── 📄 .gitignore                # Ignore node_modules, etc. if using git
+
 
 ---
 
 ## 📸 Screenshots
 
-*(Add screenshots of your homepage, dashboard, and analytics section here for better presentation)*
-
----
-
+*
 ## ✍️ Author
 
 **Harsh Pratap Singh**  
-- Email:
+- Email: harshpratapsingh39900@gmail.com
 - GitHub:  
 - Portfolio:
 
