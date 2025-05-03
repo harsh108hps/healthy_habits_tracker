@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wellness Score</title>
+  <link rel="stylesheet" href="../css part/wellness-score.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2>Your Wellness Score</h2>
+    </header>
+
+    <div class="score-info">
+      <h3>Current Wellness Score: <span id="current-score">78</span></h3>
+      <p>This score reflects how well you are maintaining your habits in different categories like fitness, sleep, hydration, and mindfulness.</p>
+    </div>
+
+    <div class="score-trends">
+      <h4>Score Trends Over the Last Week</h4>
+      <canvas id="scoreChart"></canvas>
+    </div>
+
+    <div class="habit-details">
+      <h4>Habit Completion Breakdown</h4>
+      <ul>
+        <li><strong>Fitness:</strong> 6/7 days</li>
+        <li><strong>Sleep:</strong> 7/7 days</li>
+        <li><strong>Hydration:</strong> 5/7 days</li>
+        <li><strong>Mindfulness:</strong> 4/7 days</li>
+      </ul>
+    </div>
+
+    <a href="dashboard.html" class="back-link">Back to Dashboard</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Sample data for Wellness Score trends
+    const wellnessData = {
+      labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+      datasets: [{
+        label: 'Wellness Score',
+        data: [60, 65, 70, 75, 80, 78, 85],
+        borderColor: '#28a745',
+        borderWidth: 2,
+        fill: false,
+        tension: 0.3
+      }]
+    };
+
+    // Create the chart
+    const ctx = document.getElementById('scoreChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: wellnessData,
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true, max: 100 }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* wellness-score.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    text-align: center;
+  }
+  
+  .score-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  #current-score {
+    color: #28a745;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .score-trends {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .habit-details {
+    margin-top: 30px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .habit-details ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .habit-details li {
+    margin: 8px 0;
+    font-size: 16px;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
+  
+  .back-link:hover {
+    background-color: #004d99;
+  }
+  

@@ -2,76 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HealthyHabits Tracker - Create Habit</title>
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="../css part/habitcreation.css" />
+  <title>Create Habit</title>
+  <link rel="stylesheet" href="../css part/habitcreation.css">
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">HealthyHabits Tracker</div>
-      <div class="nav-actions">
-        <button id="back-btn">&larr; Dashboard</button>
-        <button id="logout-btn">Logout</button>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Habit Creation Form -->
-  <main class="creation-container">
-    <h1>Create New Habit</h1>
+  <div class="container">
+    <h2>Create a New Habit</h2>
     <form id="habit-form">
-      <div class="form-group">
-        <label for="habit-name">Habit Name</label>
-        <input type="text" id="habit-name" name="habit-name" placeholder="e.g., Drink Water" required />
-      </div>
+      <label for="habit-name">Habit Name</label>
+      <input type="text" id="habit-name" required />
 
-      <div class="form-group">
-        <label for="category">Category</label>
-        <select id="category" name="category" required>
-          <option value="fitness">Fitness</option>
-          <option value="nutrition">Nutrition</option>
-          <option value="mindfulness">Mindfulness</option>
-          <option value="sleep">Sleep</option>
-        </select>
-      </div>
+      <label for="habit-category">Category</label>
+      <select id="habit-category">
+        <option>Health</option>
+        <option>Productivity</option>
+        <option>Learning</option>
+        <option>Mindfulness</option>
+        <option>Other</option>
+      </select>
 
-      <div class="form-group">
-        <label for="frequency">Frequency</label>
-        <select id="frequency" name="frequency" required>
-          <option value="daily">Daily</option>
-          <option value="weekly">Weekly</option>
-        </select>
-      </div>
+      <label for="habit-frequency">Frequency</label>
+      <select id="habit-frequency">
+        <option>Daily</option>
+        <option>Weekly</option>
+        <option>Monthly</option>
+      </select>
 
-      <div class="form-group">
-        <label for="target">Target</label>
-        <input type="number" id="target" name="target" placeholder="e.g., 8" required />
-      </div>
-
-      <div class="form-group">
-        <label for="unit">Unit</label>
-        <input type="text" id="unit" name="unit" placeholder="e.g., glasses, minutes" required />
-      </div>
-
-      <button type="submit" id="create-habit-btn">Create Habit</button>
+      <button type="submit">Create Habit</button>
     </form>
-    <p id="habit-error" class="error-message"></p>
-  </main>
+  </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script type="module">
+    import { db } from './firebase-config.js';
+    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-  <!-- Firebase config & initialization -->
-  <script src="../js/firebase-config.js"></script>
+    const auth = getAuth();
 
-  <!-- App Logic -->
-  <script src="../js/auth.js"></script>
-  <script src="../js/habits.js"></script>
+    const habitForm = document.getElementById("habit-form");
+
+    habitForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const habitName = document.getElementById("habit-name").value;
+      const category = document.getElementById("habit-category").value;
+      const frequency = document.getElementById("habit-frequency").value;
+
+      const user = auth.currentUser;
+      if (!user) {
+        alert("Please log in first.");
+        return;
+      }
+
+      const habitId = Date.now().toString();
+
+      try {
+        await setDoc(doc(db, "users", user.uid, "habits", habitId), {
+          name: habitName,
+          category,
+          frequency,
+          createdAt: new Date().toISOString()
+        });
+        alert("Habit created successfully!");
+        habitForm.reset();
+      } catch (error) {
+        console.error("Error adding habit: ", error);
+        alert("Failed to create habit.");
+      }
+    });
+  </script>
 </body>
 </html>

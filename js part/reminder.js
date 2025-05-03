@@ -1,6 +1,4 @@
- // reminder.js
 
-// Example reminder settings
 const reminders = [
     { message: "Time to drink water! 💧", time: "09:00" },
     { message: "Stretch and move! 🏃‍♂️", time: "11:30" },

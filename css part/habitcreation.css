@@ -1,69 +1,59 @@
- /* Habit Creation Page Styles */
-.creation-container {
-    max-width: 600px;
-    margin: 3% auto;
-    background-color: #ffffff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* habit-creation.css */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f2f6fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
   }
-  .creation-container h1 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: #0077cc;
+  
+  .container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
     text-align: center;
   }
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+  
+  h2 {
+    margin-bottom: 20px;
     color: #333;
   }
-  .form-group input,
-  .form-group select {
-    width: 100%;
-    padding: 0.75rem;
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: 500;
+  }
+  
+  input, select {
+    padding: 10px;
+    border-radius: 6px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+    margin-bottom: 15px;
+    font-size: 14px;
   }
-  .form-group input:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: #0077cc;
-  }
-  button#create-habit-btn {
-    width: 100%;
-    background-color: #0077cc;
-    color: #fff;
-    font-size: 1.1rem;
-    padding: 0.75rem;
-    margin-top: 1rem;
+  
+  button {
+    padding: 12px;
+    background-color: #007bff;
     border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
   }
-  button#create-habit-btn:hover {
-    background-color: #005fa3;
-  }
-  #error-message,
-  #habit-error {
-    color: #d9534f;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  /* Navigation Buttons */
-  .navbar .nav-actions button#back-btn {
-    background-color: #6c757d;
-    color: #fff;
-    margin-right: 0.5rem;
-  }
-  .navbar .nav-actions button#back-btn:hover {
-    background-color: #5a6268;
+  
+  button:hover {
+    background-color: #0056b3;
   }
   

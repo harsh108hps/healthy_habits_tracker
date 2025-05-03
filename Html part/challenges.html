@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Challenges</title>
+  <link rel="stylesheet" href="../css part/challenges.css" />
+</head>
+<body>
+  <h1>Join or Create a Habit Challenge</h1>
+
+  <section id="create-challenge">
+    <input type="text" id="challengeName" placeholder="Challenge Name (e.g., Hydrate for 30 days)" />
+    <input type="number" id="challengeDuration" placeholder="Duration (days)" />
+    <button onclick="createChallenge()">Create Challenge</button>
+  </section>
+
+  <section id="challenges-list">
+    <h2>Available Challenges</h2>
+    <ul id="challengeContainer"></ul>
+  </section>
+
+  <section id="leaderboard">
+    <h2>Leaderboard</h2>
+    <div id="leaderboardContainer"></div>
+  </section>
+
+  <script src="../js part/firebase-config.js"></script>
+  <script src="../js part/challenges.js"></script>
+</body>
+</html>

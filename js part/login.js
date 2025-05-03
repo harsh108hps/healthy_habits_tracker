@@ -1,4 +1,4 @@
-// login.js
+
 import { login } from './auth';
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {

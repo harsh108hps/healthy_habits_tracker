@@ -1,35 +1,25 @@
-// auth.js
-import { auth } from './firebase-config.js';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { redirectToDashboard } from './dashboard.js'; // Redirect function to dashboard
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-// Login function
-const login = async (email, password) => {
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    console.log("Login successful:", user.email);
-    // Redirect to dashboard
-    window.location.href = 'dashboard.html'; 
-  } catch (error) {
-    console.error("Error logging in:", error.message);
-    alert("Invalid email or password.");
-  }
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD-ud3Nx2K4LkC4NELxLqRDQRfz0cRO3nA",
+  authDomain: "login-form-4cfe0.firebaseapp.com",
+  projectId: "login-form-4cfe0",
+  storageBucket: "login-form-4cfe0.appspot.com",
+  messagingSenderId: "13942909257",
+  appId: "1:13942909257:web:d5e015b2fa8bdf1cbb9298",
+  measurementId: "G-8RDLS5JJSR"
 };
 
-// Signup function
-const signup = async (email, password) => {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    console.log("Signup successful:", user.email);
-    // Redirect to dashboard after signup
-    window.location.href = 'dashboard.html'; 
-  } catch (error) {
-    console.error("Error signing up:", error.message);
-    alert("Error: " + error.message);
-  }
-};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-// Export functions to use in login.html and signup.html
-export { login, signup };
+// Initialize Firebase Auth and Firestore
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Now you can use: auth, db, createUserWithEmailAndPassword, signInWithEmailAndPassword, setDoc, doc
